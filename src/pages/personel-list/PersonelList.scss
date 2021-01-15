@@ -1,0 +1,182 @@
+@import 'src/support/styles/color';
+@import 'src/support/styles/typography';
+
+p, h4{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: $open-sans;
+}
+
+.wrapper-main-content{
+    flex: 0.85;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+    .header-main-content{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .left-side-main-content{
+            h4{
+                font-size: 20px;
+                color: $primary-color;
+            }
+            p{
+                color: $secondary-color;
+            }
+        }
+
+        .right-side-main-content{
+            display: flex;
+
+            .input-right-side{
+                border: $secondary-color 0.01em solid;
+                display: flex;
+                align-items: center;
+                margin: 0 5px;
+                padding: 7px 8px;
+                
+                input{
+                    outline: none;
+                    border: none;
+                    width: 105px;
+                    font-size: 14px;
+                    color: $secondary-color;
+                    transition: 0.5s;
+                    &::-webkit-input-placeholder {
+                        font-size: 14px;
+                        color: $secondary-color;
+                    }
+                    &:focus{
+                        width: 150px;
+                    }
+                }
+
+                .icon-right-side{
+                    font-size: 14px;
+                    color: $primary-color;
+                    margin-right: 5px;
+                }
+            }
+
+            .button-right-side{
+                background-color: $primary-color;
+                display: flex;
+                align-items: center;
+                margin: 0 5px;
+                padding: 7px 8px;
+                color: white;
+            
+                p{
+                    font-size: 12px;
+                    font-weight: 600;
+                }
+
+                .icon-right-side{
+                    font-size: 12px;
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+}
+
+.modal-container{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    .icon-close{
+        
+        align-self: flex-end;
+        cursor: pointer;
+        transition: 0.5s;
+        &:hover{
+            color: $primary-color;
+        }
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-name: close-button;
+        transform-origin: rotate(45deg);
+    }
+    @keyframes close-button {
+        0%   { transform: scale(1,1)  rotate(45deg)     ; }
+        10%  { transform: scale(1.1,.9)  rotate(90deg) ; }
+        30%  { transform: scale(.9,1.1)   ; }
+        50%  { transform: scale(1.05,.95) ; }
+        57%  { transform: scale(1,1)      ; }
+        64%  { transform: scale(1,1)      ; }
+        100% { transform: scale(1,1)      ; }
+    }
+    .wrapper-card{
+        padding: 10px 20px ;
+
+        .wrapper-not-found{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            p{
+                color: $primary-color;
+                font-weight: 600;
+            }
+            .icon-not-found{
+                height: 55px;
+                margin-top: 15px;
+                animation: not-found-icon 0.82s cubic-bezier(.36,.07,.19,.97) both;
+                animation-name: not-found-icon;
+                transform: translate3d(0, 0, 0);
+            }
+
+            @keyframes not-found-icon {
+                10%, 90% {
+                  transform: translate3d(-1px, 0, 0);
+                }
+                
+                20%, 80% {
+                  transform: translate3d(2px, 0, 0);
+                }
+              
+                30%, 50%, 70% {
+                  transform: translate3d(-4px, 0, 0);
+                }
+              
+                40%, 60% {
+                  transform: translate3d(4px, 0, 0);
+                }
+              }
+        }
+    }
+}
+
+@media (max-width: 375px){
+    .wrapper-main-content{
+        flex: 1;
+        padding: 0;
+        
+        .header-main-content{
+            flex-direction: column;
+            align-items: flex-start;
+
+            .right-side-main-content{
+                flex-direction: column;
+
+                .input-right-side{
+                    width: 300px;
+                    margin: 10px 0;
+                    margin-top: 25px;
+                }
+                .button-right-side{
+                    margin: 0;
+                    justify-content: space-between;
+                    padding: 8px 15px;
+                }
+
+            }
+        }
+    }
+}

@@ -1,0 +1,115 @@
+@import 'src/support/styles/typography';
+@import 'src/support/styles/color';
+
+
+p{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: $open-sans;
+}
+
+.container-card{
+    border-radius: 10px;
+    flex: 0.24;
+    
+    .wrapper-header-card{
+        padding: 7px 15px;
+        border-bottom: $secondary-color 0.01em solid;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        p{
+            color: $secondary-color;
+            font-size: 14px;
+            span{
+                color: $primary-color;
+            }
+        }
+        .icon-header{
+            color: $secondary-color;
+        }
+    }
+
+    .wrapper-middle-card{
+        padding: 20px 10px;
+
+        .wrapper-foto{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .foto-user{
+            box-shadow: 0px 0px 4px 1px rgba(112,112,112,0.62);
+            object-fit: cover;
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+        }
+        .wrapper-info-mobile{
+            display: none;
+        }
+    }
+
+    .wrapper-bottom-card{
+        padding: 7px 15px;
+        display: block;
+        .wrapper-info{
+            margin: 10px 0;
+            .title{
+                font-size: 14px;
+                font-weight: 600;
+                color: $secondary-color;
+            }
+            .isi{
+                font-size: 15px;
+                font-weight: 300;
+                color: $secondary-color;
+            }
+        }
+    }
+}
+
+.card-border{
+    border: $secondary-color 0.01em solid;
+}
+
+@media (max-width: 375px){
+    .container-card{
+        flex: 1;
+        margin-bottom: 15px;
+
+        .wrapper-middle-card{
+            padding: 20px 10px;
+            display: flex;
+            .wrapper-info-mobile{
+                flex: 1;
+                margin-left: 15px;
+                display: block;
+                .wrapper-info{
+                    margin-bottom: 8px;
+                    .title{
+                        font-size: 14px;
+                        font-weight: 600;
+                        color: $secondary-color;
+                        margin-bottom: 2px;
+                    }
+                    .isi{
+                        font-size: 15px;
+                        font-weight: 300;
+                        color: $secondary-color;
+                    }
+                }
+            }
+            .foto-user{
+                height: 100px;
+                width: 100px;
+            }
+        }
+        .wrapper-bottom-card{
+            display: none;
+        }
+    }
+}

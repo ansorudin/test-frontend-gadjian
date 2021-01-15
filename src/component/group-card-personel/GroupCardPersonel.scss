@@ -1,0 +1,13 @@
+.wrapper-card-personel{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 60vh;
+}
+
+@media (max-width: 375px){
+    .wrapper-card-personel{
+        justify-content: center;
+        overflow: scroll;
+    }
+}

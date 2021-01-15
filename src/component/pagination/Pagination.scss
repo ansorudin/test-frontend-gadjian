@@ -1,0 +1,39 @@
+@import 'src/support/styles/color';
+@import 'src/support/styles/typography';
+
+.container-pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    .wrapper-pagination{
+        display: flex;
+        align-items: center;
+        border: none;
+        outline: none;
+        background-color: inherit;
+        margin: 0 10px;
+        cursor: pointer;
+        font-family: $open-sans;
+        transition: 0.5s;
+        
+        p{
+            font-size: 14px;
+        }
+        .icon-left{
+            margin-right: 5px;
+            font-size: 16px;
+        }
+
+        .icon-right{
+            margin-left: 5px;
+            font-size: 16px;
+        }
+        &:hover{
+            color: $primary-color;
+        }
+        &:disabled{
+            color: $secondary-color;
+        }
+    }
+}

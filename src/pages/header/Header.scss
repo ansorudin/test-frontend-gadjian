@@ -46,7 +46,7 @@
     }
 }
 
-@media (max-width : 1200px){
+@media (min-width:992px) and (max-width: 1366px){
     .container-header{
         margin: 40px 70px;
     }

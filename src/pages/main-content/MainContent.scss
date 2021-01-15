@@ -56,7 +56,7 @@ a, u {
     filter: opacity(0.3);
 }
 
-@media (max-width: 1200px){
+@media (min-width:992px) and (max-width: 1366px){
     .container-content{
         margin: 0 70px;
         .wrapper-sidebar{

@@ -46,7 +46,7 @@ body{
     }
 }
 
-@media (max-width : 1200px){
+@media (min-width:992px) and (max-width: 1366px){
     .title-header{
         h4{
             font-size: 17px;

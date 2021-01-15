@@ -11,16 +11,11 @@ body{
 }
 
 
-.container-card{
+.container-card-modal{
     border-radius: 10px;
     flex: 0.24;
-    transition: 0.3s;
     box-sizing: border-box;
-    transform: scale(1);
-    &:hover{
-        transform: scale(1.03);
-    }
-    .wrapper-header-card{
+    .wrapper-header-card-modal{
         padding: 10px 15px;
         border-bottom: rgba(150,150,150,0.4) 0.01em solid;
         display: flex;
@@ -33,21 +28,21 @@ body{
                 color: $primary-color;
             }
         }
-        .icon-header{
+        .icon-header-modal{
             color: $secondary-color;
         }
     }
 
-    .wrapper-middle-card{
+    .wrapper-middle-card-modal{
         padding: 20px 10px;
 
-        .wrapper-foto{
+        .wrapper-foto-modal{
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .foto-user{
+        .foto-user-modal{
             box-shadow: 0px 0px 4px 1px rgba(112,112,112,0.62);
             object-fit: cover;
             height: 200px;
@@ -59,7 +54,7 @@ body{
         }
     }
 
-    .wrapper-bottom-card{
+    .wrapper-bottom-card-modal{
         padding: 7px 15px;
         display: block;
         .wrapper-info{
@@ -85,62 +80,19 @@ body{
         box-shadow: 0px 1px 2px 0.5px rgba(112,112,112,0.5);
     }
 }
-@media (max-width: 1200px){
-    .container-card{
-        max-width: 240px;
-        max-height: 410px;
-        .wrapper-header-card{
-            p{
-                font-size: 10px;
-            }
-        }
-        .wrapper-middle-card{
-            padding: 20px 10px;
-    
-            .foto-user{
-                box-shadow: 0px 0px 4px 1px rgba(112,112,112,0.62);
-                object-fit: cover;
-                height: 150px;
-                width: 150px;
-                border-radius: 50%;
-            }
-            .wrapper-info-mobile{
-                display: none;
-            }
-        }
-        .wrapper-bottom-card{
-            padding: 7px 15px;
-            display: block;
-            .wrapper-info{
-                margin: 10px 0;
-                .title{
-                    font-size: 10px;
-                }
-                .isi{
-                    font-size: 11px;
-                }
-            }
-        }
-    }
-}
-
 
 @media (max-width: 375px){
-    .container-card{
+    .container-card-modal{
         flex: 1;
         max-width: 100%;
         margin-bottom: 15px;
-        transform: translateY(0);
-        &:hover{
-            transform: translateY(3px);
-        }
-        .wrapper-header-card{
+        .wrapper-header-card-modal{
             p{
                 font-size: 13px;
             }
         }
 
-        .wrapper-middle-card{
+        .wrapper-middle-card-modal{
             padding: 20px 10px;
             display: flex;
             .wrapper-info-mobile{
@@ -162,12 +114,12 @@ body{
                     }
                 }
             }
-            .foto-user{
+            .foto-user-modal{
                 height: 100px;
                 width: 100px;
             }
         }
-        .wrapper-bottom-card{
+        .wrapper-bottom-card-modal{
             display: none;
         }
     }

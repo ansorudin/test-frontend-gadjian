@@ -14,12 +14,12 @@ body{
     padding: 0 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     
     .header-main-content{
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 50px;
 
         .left-side-main-content{
             h4{
@@ -134,24 +134,70 @@ body{
 
             @keyframes not-found-icon {
                 10%, 90% {
-                  transform: translate3d(-1px, 0, 0);
+                transform: translate3d(-1px, 0, 0);
                 }
                 
                 20%, 80% {
-                  transform: translate3d(2px, 0, 0);
+                transform: translate3d(2px, 0, 0);
                 }
-              
+            
                 30%, 50%, 70% {
-                  transform: translate3d(-4px, 0, 0);
+                transform: translate3d(-4px, 0, 0);
                 }
-              
+            
                 40%, 60% {
-                  transform: translate3d(4px, 0, 0);
+                transform: translate3d(4px, 0, 0);
                 }
-              }
+            }
         }
     }
 }
+
+@media (max-width: 1200px) {
+    .wrapper-main-content{
+        padding: 0 10px;
+        .header-main-content{
+            .right-side-main-content{
+                .input-right-side{ 
+                    input{
+                        width: 90px;
+                        font-size: 12px;
+                        &::-webkit-input-placeholder {
+                            font-size: 12px;
+                        }
+                        &:focus{
+                            width: 120px;
+                        }
+                    }
+    
+                    .icon-right-side{
+                        font-size: 12px;
+                    }
+                }
+    
+                .button-right-side{
+                    background-color: $primary-color;
+                    display: flex;
+                    align-items: center;
+                    margin: 0 5px;
+                    padding: 7px 8px;
+                    color: white;
+                
+                    p{
+                        font-size: 10px;
+                        font-weight: 600;
+                    }
+    
+                    .icon-right-side{
+                        font-size: 10px;
+                        margin-left: 7px;
+                    }
+                }
+            }
+        }
+    }
+}
+
 
 @media (max-width: 375px){
     .wrapper-main-content{

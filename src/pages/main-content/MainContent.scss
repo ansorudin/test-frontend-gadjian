@@ -13,6 +13,7 @@ a, u {
     color: inherit;
 }
 
+
 .container-content{
     display: flex;
     margin: 0 150px;
@@ -20,7 +21,6 @@ a, u {
 
     .wrapper-sidebar{
         flex: 0.15;
-        padding: 20px 0;
         .wrapper-icon-sidebar{
             display: flex;
             align-items: center;
@@ -54,6 +54,32 @@ a, u {
 .on-loading{
     pointer-events: none;
     filter: opacity(0.3);
+}
+
+@media (max-width: 1200px){
+    .container-content{
+        margin: 0 70px;
+        .wrapper-sidebar{
+            .wrapper-icon-sidebar{
+                margin-bottom: 10px;
+                
+                span{
+                    height: 18px;
+                    width: 18px;
+                    line-height: 18px;
+                    .icon-sidebar-content{
+                        font-size: 15px;
+                    }
+                }
+    
+                p{
+                    font-size: 12px;
+                    
+                }
+            }
+        }
+    } 
+           
 }
 
 @media (max-width: 375px){

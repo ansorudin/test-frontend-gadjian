@@ -17,7 +17,7 @@ const Beranda = () => {
         >
             <div className='header-beranda'>
                 <TitleHeader
-                    title='Beranda'
+                    title='BERANDA'
                     description='All about beranda is here'
                 />
             </div>

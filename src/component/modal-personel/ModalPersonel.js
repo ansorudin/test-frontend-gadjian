@@ -2,8 +2,8 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react'
 import Modal from 'react-modal';
-import CardPersonel from '../card-personel/CardPersonel';
 import notFound from '../../assets/image/not-found.svg'
+import CardModal from '../card-modal/CardModal';
 
 const customStyles = {
     content : {
@@ -24,7 +24,7 @@ const ModalPersonel = ({modalIsOpen, onClick, searchResult}) => {
                 <div className='wrapper-card'>
                     {
                         searchResult ? 
-                        <CardPersonel
+                        <CardModal
                             personel_id={searchResult.id.value} 
                             foto_user={searchResult.picture.large}
                             name={searchResult.name.first + ' ' + searchResult.name.last}

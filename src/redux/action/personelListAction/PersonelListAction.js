@@ -8,7 +8,7 @@ export const getPersonnelData = () => {
             type: PERSON_LOADING
         })
         try {
-            let res = await axios.get('https://randomuser.me/api/?results=28')
+            let res = await axios.get(process.env.REACT_APP_API_KEY)
             if(res.error){
                 dispatch({
                     type: PERSON_ERROR,

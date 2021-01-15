@@ -1,15 +1,16 @@
+import React, {useState} from 'react'
 import { faCalendarAlt, faHome, faPlus, faUsers } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, {useState} from 'react'
 import { connect } from 'react-redux'
 import { Route, BrowserRouter as Router, Switch, Link } from 'react-router-dom'
+import { motion, AnimatePresence} from "framer-motion";
+import './MainContent.scss'
+
 import Beranda from '../beranda/Beranda'
 import DailyAttendance from '../daily-attendance/DailyAttendance'
 import PersonelList from '../personel-list/PersonelList'
 import {onMobileNotActive} from '../../redux/action/mobileSectionAction/MobileActive'
-import { motion, AnimatePresence} from "framer-motion";
 import {variants} from '../../config/animation/mobileSectionAnimation'
-import './MainContent.scss'
 import IconSidebarDesktop from '../../component/atoms/IconSidebarDesktop'
 import OptionSidebarMobile from '../../component/atoms/OptionSidebarMobile'
 
@@ -36,7 +37,7 @@ const MainContent = ({personnelListData, onMobileNotActive, MobileActive}) => {
     return (
         <div className={personnelListData.loading ? `container-content on-loading` : 'container-content'}>
             <Router>
-                {/* Dekstop Section */}
+                {/* Sidebar desktop section */}
                 <div className='wrapper-sidebar'>
                     <Link to='beranda' onClick={() => setActive('beranda')}>
                         <IconSidebarDesktop activeLink={active === 'beranda' ? 'active-link' : null} icon={faHome} isi='Beranda' />
@@ -49,9 +50,10 @@ const MainContent = ({personnelListData, onMobileNotActive, MobileActive}) => {
                     </Link>
                 </div>
 
-                {/* Mobile Section */}
+                {/* Sidebar mobile Section */}
                 <motion.div 
                     className={MobileActive.mobileActive ? 'wrapper-sidebar-mobile on-display' : 'wrapper-sidebar-mobile'}
+                    // config for animation
                     initial={false}
                     animate={MobileActive.mobileActive ? "open" : "closed"}
                 >

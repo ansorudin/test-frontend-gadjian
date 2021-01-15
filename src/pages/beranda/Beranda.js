@@ -9,6 +9,7 @@ const Beranda = () => {
     return (
         <motion.div 
             className='wrapper-beranda'
+            // config for page transition
             initial="out"
             animate="in"
             exit="out"
@@ -20,6 +21,7 @@ const Beranda = () => {
                     description='All about beranda is here'
                 />
             </div>
+            {/* this page not include requirements so saya membuat page ini menjadi under contruction */}
             <PageUnderContruction />
         </motion.div>
     )

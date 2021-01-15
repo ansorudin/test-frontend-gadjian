@@ -1,13 +1,14 @@
 import React from 'react'
 import './Header.scss'
-import GadjianLogo from './../../assets/image/gadjian-logo.png'
+import { connect } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
-import {onMobileActive} from '../../redux/action/mobileSectionAction/MobileActive'
-import { connect } from 'react-redux'
 
-const header = ({onMobileActive, MobileActive}) => {
-    console.log(MobileActive)
+import GadjianLogo from './../../assets/image/gadjian-logo.png'
+import {onMobileActive} from '../../redux/action/mobileSectionAction/MobileActive'
+
+const header = ({onMobileActive}) => {
+
     return (
         <div className='container-header'>
             <div className='wrapper-logo'>

@@ -10,6 +10,7 @@ const DailyAttendance = () => {
     return (
         <motion.div 
             className='wrapper-daily'
+            // config for page transition
             initial="out"
             animate="in"
             exit="out"
@@ -21,6 +22,7 @@ const DailyAttendance = () => {
                     description='All about daily attendance is here'
                 />
             </div>
+            {/* this page not include requirements so saya membuat page ini menjadi under contruction */}
             <PageUnderContruction />
         </motion.div>
     )

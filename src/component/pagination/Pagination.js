@@ -4,7 +4,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import './Pagination.scss'
 
-
 const Pagination = ({personnelListData, currentPage, dataPerPage, onClickLeft, onClickRight}) => {
     return (
         <div className='container-pagination'>

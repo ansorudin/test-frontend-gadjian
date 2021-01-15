@@ -9,7 +9,8 @@ import HeaderPersonel from '../../component/header-personel/HeaderPersonel'
 import ModalPersonel from '../../component/modal-personel/ModalPersonel'
 import ErrorPage from '../../component/atoms/ErrorPage'
 import LoadingPage from '../../component/atoms/LoadingPage'
-
+import {motion} from 'framer-motion'
+import { pageVariants } from '../../config/animation/pageTransitionAnimation'
 
 const PersonelList = ({getPersonnelData, personnelListData, changeInputValue, onValueFindSearch}) => {
 
@@ -53,7 +54,9 @@ const PersonelList = ({getPersonnelData, personnelListData, changeInputValue, on
     const renderList = () => {
         if(personnelListData.data && personnelListData.loading === false){
             return(
-                <GroupCardPersonel currentData={currentData} />
+                <GroupCardPersonel 
+                    currentData={currentData} 
+                />
             )
         }else{
             return(
@@ -63,7 +66,13 @@ const PersonelList = ({getPersonnelData, personnelListData, changeInputValue, on
     }
 
     return (
-        <div className='wrapper-main-content'>
+        <motion.div 
+            className='wrapper-main-content'
+            initial="out"
+            animate="in"
+            exit="out"
+            variants={pageVariants}
+        >
             <ModalPersonel
                 modalIsOpen={modalIsOpen}
                 searchResult={searchResult}
@@ -81,9 +90,8 @@ const PersonelList = ({getPersonnelData, personnelListData, changeInputValue, on
                     />
                 :
                     null
-            }
-            
-        </div>
+            }  
+        </motion.div>
     )
 }
 

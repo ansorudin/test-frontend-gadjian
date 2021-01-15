@@ -7,31 +7,12 @@ import Beranda from '../beranda/Beranda'
 import DailyAttendance from '../daily-attendance/DailyAttendance'
 import PersonelList from '../personel-list/PersonelList'
 import {onMobileNotActive} from '../../redux/action/mobileSectionAction/MobileActive'
+import { motion, AnimatePresence} from "framer-motion";
+import {variants} from '../../config/animation/mobileSectionAnimation'
 import './MainContent.scss'
+import IconSidebarDesktop from '../../component/atoms/IconSidebarDesktop'
+import OptionSidebarMobile from '../../component/atoms/OptionSidebarMobile'
 
-const IconSidebar = ({icon, isi, activeLink}) => {
-    return(
-        <div className={`wrapper-icon-sidebar ${activeLink}`}>
-            <span>
-                <FontAwesomeIcon icon={icon} className='icon-sidebar-content' />
-            </span>
-            <p>{isi}</p>
-        </div>
-    )
-}
-
-const IconSidebarMobile = ({icon, isi, activeLink}) => {
-    return(
-        <div className='option-list'>
-            <span>
-                <FontAwesomeIcon icon={icon} className='icon-sidebar-mobile' />
-            </span>
-            <div className={activeLink}>
-                <p>{isi}</p>
-            </div>
-        </div>
-    )
-}
 
 const MainContent = ({personnelListData, onMobileNotActive, MobileActive}) => {
 
@@ -41,7 +22,7 @@ const MainContent = ({personnelListData, onMobileNotActive, MobileActive}) => {
             page: () => <Beranda />
         },
         {
-            path: "/personal-list",
+            path: "/",
             exact: true,
             page: () => <PersonelList />
         },
@@ -58,18 +39,22 @@ const MainContent = ({personnelListData, onMobileNotActive, MobileActive}) => {
                 {/* Dekstop Section */}
                 <div className='wrapper-sidebar'>
                     <Link to='beranda' onClick={() => setActive('beranda')}>
-                        <IconSidebar activeLink={active === 'beranda' ? 'active-link' : null} icon={faHome} isi='Beranda' />
+                        <IconSidebarDesktop activeLink={active === 'beranda' ? 'active-link' : null} icon={faHome} isi='Beranda' />
                     </Link>
-                    <Link to='/personal-list' onClick={() => setActive('personal-list')}>
-                        <IconSidebar activeLink={active === 'personal-list' ? 'active-link' : null} icon={faUsers} isi='Personal List' />
+                    <Link to='/' onClick={() => setActive('personal-list')}>
+                        <IconSidebarDesktop activeLink={active === 'personal-list' ? 'active-link' : null} icon={faUsers} isi='Personal List' />
                     </Link>
                     <Link to='daily-attendance' onClick={() => setActive('daily-attendance')}>
-                        <IconSidebar activeLink={active === 'daily-attendance' ? 'active-link' : null} icon={faCalendarAlt} isi='Daily Attendance' />
+                        <IconSidebarDesktop activeLink={active === 'daily-attendance' ? 'active-link' : null} icon={faCalendarAlt} isi='Daily Attendance' />
                     </Link>
                 </div>
 
                 {/* Mobile Section */}
-                <div className={MobileActive.mobileActive ? 'wrapper-sidebar-mobile on-display' : 'wrapper-sidebar-mobile' }>
+                <motion.div 
+                    className={MobileActive.mobileActive ? 'wrapper-sidebar-mobile on-display' : 'wrapper-sidebar-mobile'}
+                    initial={false}
+                    animate={MobileActive.mobileActive ? "open" : "closed"}
+                >
                     <div className='wrapper-icon-close'>
                         <FontAwesomeIcon 
                             icon={faPlus} 
@@ -77,29 +62,45 @@ const MainContent = ({personnelListData, onMobileNotActive, MobileActive}) => {
                             onClick={() => onMobileNotActive()}
                         />
                     </div>
-                    <div className='wrapper-option'>
-                        <Link to='beranda' onClick={() => {setActive('beranda');onMobileNotActive()}}>
-                            <IconSidebarMobile activeLink={active === 'beranda' ? 'underline-text' : null} icon={faHome} isi='Beranda' />
-                        </Link>
-                        <Link to='/personal-list' onClick={() => {setActive('personal-list');onMobileNotActive()}}>
-                            <IconSidebarMobile activeLink={active === 'personal-list' ? 'underline-text' : null} icon={faUsers} isi='Personal List' />
-                        </Link>
-                        <Link to='daily-attendance' onClick={() => {setActive('daily-attendance');onMobileNotActive()}}>
-                            <IconSidebarMobile activeLink={active === 'daily-attendance' ? 'underline-text' : null} icon={faCalendarAlt} isi='Daily Attendance' />
-                        </Link>
-                        
-                    </div>
-                </div>
-                <Switch>
-                    {routes.map((route, index) => (
-                        <Route
-                            key={index}
-                            path={route.path}
-                            exact={route.exact}
-                            children={<route.page />}
+                    <motion.div
+                        variants={variants}
+                        className='wrapper-option'
+                    >
+                        <OptionSidebarMobile 
+                            icon={faHome}
+                            activeLink={active === 'beranda' ? 'underline-text' : null}
+                            isi='Beranda'
+                            linkTo='/beranda'
+                            onClick={() => {setActive('beranda');onMobileNotActive()}}
                         />
-                    ))}
-                </Switch>
+                        <OptionSidebarMobile 
+                            icon={faUsers}
+                            activeLink={active === 'personal-list' ? 'underline-text' : null}
+                            isi='Personal List' 
+                            linkTo='/'
+                            onClick={() => {setActive('personal-list');onMobileNotActive()}}
+                        />
+                        <OptionSidebarMobile 
+                            icon={faCalendarAlt} 
+                            isi='Daily Attendance'
+                            activeLink={active === 'daily-attendance' ? 'underline-text' : null}
+                            linkTo='/daily-attendance'
+                            onClick={() => {setActive('daily-attendance');onMobileNotActive()}}
+                        />
+                    </motion.div>
+                </motion.div>
+                <AnimatePresence>
+                    <Switch>
+                        {routes.map((route, index) => (
+                            <Route
+                                key={index}
+                                path={route.path}
+                                exact={route.exact}
+                                children={<route.page />}
+                            />
+                        ))}
+                    </Switch>
+                </AnimatePresence>
             </Router>
         </div>
     )

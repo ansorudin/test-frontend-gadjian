@@ -2,9 +2,13 @@ import React from 'react'
 import CardPersonel from '../card-personel/CardPersonel'
 import './GroupCardPersonel.scss'
 
+
 const GroupCardPersonel = ({currentData}) => {
+
     return (
-        <div className='wrapper-card-personel'>
+        <div 
+            className='wrapper-card-personel'
+        >
             {
                 currentData && currentData.map((val, idx) => {
                     return(

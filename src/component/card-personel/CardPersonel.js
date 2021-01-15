@@ -3,19 +3,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import './CardPersonel.scss'
 import moment from 'moment'
-
-const InfoUser = ({title, isi}) => {
-    return(
-        <div className='wrapper-info'>
-            <p className='title'>{title}</p>
-            <p className='isi'>{isi}</p>
-        </div>
-    )
-}
+import {motion} from 'framer-motion'
+import { CardPersonelVariants } from '../../config/animation/cardAnimation'
+import InfoUserMobile from '../atoms/InfoUserMobile'
+import InfoUser from '../atoms/InfoUser'
 
 const CardPersonel = ({personel_id, foto_user, name, phone_number, birthday, email, border}) => {
+
     return (
-        <div className={`container-card ${border ? 'card-border' : ''}`}>
+        <motion.div 
+            className={`container-card ${border ? 'card-border' : ''}`}
+            initial="off"
+            animate='on'
+            exit="off"
+            variants={CardPersonelVariants}
+            whileHover={{scale : 1.03}}
+        >
             <div className='wrapper-header-card'>
                 <p>
                     Personel ID : <span>{personel_id ? personel_id.slice(0, 13) : 'NA'}</span>
@@ -27,16 +30,7 @@ const CardPersonel = ({personel_id, foto_user, name, phone_number, birthday, ema
                 <div className='wrapper-foto'>
                     <img src={foto_user} alt='user-foto' className='foto-user' />
                 </div>
-                <div className='wrapper-info-mobile'>
-                    <div className='wrapper-info'>
-                        <p className='title'>Name</p>
-                        <p className='isi'>{name}</p>
-                    </div>
-                    <div className='wrapper-info'>
-                        <p className='title'>Telephone</p>
-                        <p className='isi'>{phone_number}</p>
-                    </div>
-                </div>
+                <InfoUserMobile name={name} phone_number={phone_number} />
             </div>
 
             <div className='wrapper-bottom-card'>
@@ -45,7 +39,7 @@ const CardPersonel = ({personel_id, foto_user, name, phone_number, birthday, ema
                 <InfoUser title='Birthday' isi={moment(birthday).format('DD - MMM')} />
                 <InfoUser title='Email' isi={email} />
             </div>
-        </div>
+        </motion.div>
     )
 }
 

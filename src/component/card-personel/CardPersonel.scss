@@ -125,7 +125,7 @@ body{
 }
 
 
-@media (max-width: 375px){
+@media (min-width: 320px) and (max-width:414px){
     .container-card{
         flex: 1;
         max-width: 100%;

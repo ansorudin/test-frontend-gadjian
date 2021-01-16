@@ -6,7 +6,7 @@
 }
 
 
-@media (max-width: 375px){
+@media (min-width: 320px) and (max-width:414px){
     .wrapper-card-personel{
         justify-content: center;
         overflow: scroll;

@@ -52,7 +52,7 @@
     }
 }
 
-@media (max-width: 375px){
+@media (min-width: 320px) and (max-width:414px){
     .container-header{
         margin: 40px 20px;
         .wrapper-logo{

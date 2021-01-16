@@ -157,6 +157,7 @@ body{
 @media (min-width:992px) and (max-width: 1366px) {
     .wrapper-main-content{
         padding: 0 10px;
+        padding-bottom: 10px;
         .header-main-content{
             .right-side-main-content{
                 .input-right-side{ 
@@ -200,7 +201,7 @@ body{
 }
 
 
-@media (max-width: 375px){
+@media (min-width: 320px) and (max-width:414px){
     .wrapper-main-content{
         flex: 1;
         padding: 0;

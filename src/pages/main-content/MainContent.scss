@@ -83,7 +83,7 @@ a, u {
            
 }
 
-@media (max-width: 375px){
+@media (min-width: 320px) and (max-width:414px){
     .container-content{
         margin: 0 20px;
         .wrapper-sidebar{

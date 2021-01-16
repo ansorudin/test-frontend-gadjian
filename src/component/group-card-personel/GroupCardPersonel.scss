@@ -3,15 +3,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    height: 60vh;
-    margin-bottom: 60px;
 }
 
-@media (min-width:992px) and (max-width: 1366px){
-    .wrapper-card-personel{
-        margin-bottom: 0;
-    }
-}
 
 @media (max-width: 375px){
     .wrapper-card-personel{

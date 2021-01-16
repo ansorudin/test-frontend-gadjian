@@ -17,7 +17,7 @@ a, u {
 .container-content{
     display: flex;
     margin: 0 150px;
-    height: 100vh;
+    height: 80vh;
 
     .wrapper-sidebar{
         flex: 0.15;
@@ -59,6 +59,7 @@ a, u {
 @media (min-width:992px) and (max-width: 1366px){
     .container-content{
         margin: 0 70px;
+        height: 90vh;
         .wrapper-sidebar{
             .wrapper-icon-sidebar{
                 margin-bottom: 10px;
@@ -123,17 +124,17 @@ a, u {
                     margin-bottom: 10px;
                     color: white;
                     span{
-                        height: 25px;
-                        width: 25px;
+                        height: 20px;
+                        width: 20px;
                         text-align: center;
-                        line-height: 25px;
-                        margin-right: 10px;
+                        line-height: 20px;
+                        margin-right: 18px;
                         .icon-sidebar-mobile{
-                            font-size: 18px;
+                            font-size: 16px;
                         }
                     }
                     p{
-                        font-size: 15px;
+                        font-size: 13px;
                     }
                     .underline-text{
                         p{

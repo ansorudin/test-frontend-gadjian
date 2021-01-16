@@ -77,18 +77,20 @@ const PersonelList = ({getPersonnelData, personnelListData, changeInputValue, on
             exit="out"
             variants={pageVariants}
         >
-            {/* Modal section for result search field */}
-            <ModalPersonel
-                modalIsOpen={modalIsOpen}
-                searchResult={searchResult}
-                onClick={() => setIsOpen(false)} 
-            />
+            <div>
+                {/* Modal section for result search field */}
+                <ModalPersonel
+                    modalIsOpen={modalIsOpen}
+                    searchResult={searchResult}
+                    onClick={() => setIsOpen(false)} 
+                />
 
-            {/* Header section include input field for search */}
-            <HeaderPersonel onKeyPress={(e) => handlePressKey(e)} />
+                {/* Header section include input field for search */}
+                <HeaderPersonel onKeyPress={(e) => handlePressKey(e)} />
 
-            {/* Group card section, show 4 card*/}
-            {personnelListData.loading ? <LoadingPage /> : renderList()}
+                {/* Group card section, show 4 card*/}
+                {personnelListData.loading ? <LoadingPage /> : renderList()}
+            </div>
 
             {/* Pagination section */}
             {
